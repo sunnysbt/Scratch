@@ -1,0 +1,56 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Site.master.cs" Inherits="SiteMaster" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head runat="server">
+    <title></title>
+    <link href="http://localhost/ScratchCMS/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form runat="server">
+    <div class="page">
+        <div class="header">
+            <div class="title">
+                <h1>
+                    Scratch CMS
+                </h1>
+            </div>
+            <div class="loginDisplay">
+                <a href="~/Login.aspx" style="text-decoration: none;" id="HeadLoginStatus" runat="server">
+                    <asp:Label ID="lblLogIn" runat="server" Text="[Log In]" /></a>
+                <asp:Label ID="lblWelcome" runat="server" Text="Welcome " Visible="false" />
+                <span class="bold">
+                    <asp:Label ID="HeadLoginName" runat="server" />
+                </span>
+                <asp:LinkButton ID="HeadLoginOut" Style="text-decoration: none;" CausesValidation="false"
+                    runat="server" Visible="false" Text="! [Log Out]" OnClick="HeadLoginOut_Click" />
+            </div>
+            <div class="clear hideSkiplink">
+                <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false"
+                    IncludeStyleBlock="false" Orientation="Horizontal" Visible="false">
+                    <Items>
+                        <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Home" />
+                        <%-- <asp:MenuItem NavigateUrl="~/About.aspx" Text="About" />--%>
+                        <asp:MenuItem NavigateUrl="~/Levels.aspx" Text="Add Level" />
+                        <asp:MenuItem NavigateUrl="~/Themes.aspx" Text="Add Theme" />
+                        <asp:MenuItem NavigateUrl="~/Collectibles.aspx" Text="Add Collectibles" />
+                        <asp:MenuItem NavigateUrl="~/Tickets.aspx" Text="Add Ticket" />
+                        <asp:MenuItem NavigateUrl="~/Bank.aspx" Text="Bank" />
+                    </Items>
+                </asp:Menu>
+            </div>
+        </div>
+        <div class="main">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <div class="footer">
+    </div>
+    </form>
+</body>
+</html>
